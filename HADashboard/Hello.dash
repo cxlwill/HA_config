@@ -1,0 +1,192 @@
+##
+## Main arguments, all optional
+##
+title: HADashboard
+widget_dimensions: [110, 110]
+widget_margins: [2, 2]
+columns: 5
+
+label:
+  widget_type: label
+  text: Hello World
+
+clock:
+  widget_type: clock
+  date_style: "font-size: 300%;"
+
+sunrise:
+  title: 日出
+  widget_type: sensor
+  entity: sensor.sunrise
+  text_style: "font-size: 250%;"
+  widget_style: "background-color: #ff7500cc;"
+
+sunset:
+  title: 日落
+  widget_type: sensor
+  entity: sensor.sunset
+  text_style: "font-size: 250%;"
+  widget_style: "background-color: #444444d1;"
+
+tiderise:
+  title: 涨潮
+  widget_type: sensor
+  entity: sensor.tide_up
+  text_style: "font-size: 250%;"
+  widget_style: "background-color: #007bbbd6;"
+
+tidedown:
+  title: 退潮
+  widget_type: sensor
+  entity: sensor.tide_down
+  text_style: "font-size: 250%;"
+  widget_style: "background-color: #007bbbd6;"
+
+weather:
+  widget_type: weather
+  units: "&deg;C"
+
+air:
+  title: 空气质量
+  widget_type: sensor
+  entity: sensor.air_index
+  text_style: "font-size: 250%;"
+  widget_style: "background-color: rgba(0, 98, 212, 0.85);"
+
+air_pollutant:
+  title: 主要污染物
+  widget_type: sensor
+  entity: sensor.chinese_main_pollutant
+  text_style: "font-size: 250%;"
+  widget_style: "background-color: rgba(0, 98, 212, 0.85);"
+
+aqi_cn:
+  title: 指数中标
+  widget_type: sensor
+  entity: sensor.chinese_air_quality_index
+  text_style: "font-size: 250%;"
+  widget_style: "background-color: rgba(0, 98, 212, 0.85);"
+
+aqi_us:
+  title: 指数美标
+  widget_type: sensor
+  entity: sensor.us_air_quality_index
+  text_style: "font-size: 250%;"
+  widget_style: "background-color: rgba(0, 98, 212, 0.85);"
+
+moon:
+  widget_type: sensor
+  entity: sensor.moon_state
+  text_style: "font-size: 250%;"
+  widget_style: "background-color: #a3a3a2;"
+
+indoor_temp:
+  title: 室内温度
+  widget_type: sensor
+  units: "&deg;C"
+  entity: sensor.temperature_158d00010e50d7
+
+indoor_humid:
+  title: 室内湿度
+  widget_type: sensor
+  units: "%"
+  entity: sensor.humidity_158d00010e50d7
+
+window:
+  title: 窗户
+  widget_type: binary_sensor
+  entity: binary_sensor.door_window_sensor_158d00019e0f1d
+  icon_on: fa-unlock
+  icon_off: fa-lock
+
+plant:
+  title: 盆栽
+  widget_type: binary_sensor
+  entity: binary_sensor.co
+  icon_on: fa-pagelines
+  icon_off: mdi-flower
+
+light_gateway:
+  title: 网关灯
+  widget_type: light
+  entity: light.gateway_light_f0b429b43088
+  on_attributes:
+    brightness: 15
+  icon_style_active: "top: 35px;"
+  icon_style_inactive: "top: 35px;"
+
+light_strip:
+  title: 灯带
+  widget_type: light
+  entity: light.yeelight_strip_286c072f6ce6
+  icon_style_active: "top: 35px;"
+  icon_style_inactive: "top: 35px;"
+
+light_desklamp:
+  title: 台灯
+  widget_type: light
+  entity: light.lamp
+  icon_style_active: "top: 35px;"
+  icon_style_inactive: "top: 35px;"
+
+light_bedside:
+  title: 床头灯
+  widget_type: light
+  entity: light.philips_smart_led_ball
+  icon_style_active: "top: 35px;"
+  icon_style_inactive: "top: 35px;"
+
+switch:
+  title: 魔镜
+  widget_type: switch
+  entity: switch.plug_158d00011c85e2
+
+dad:
+  title: 爸爸
+  widget_type: device_tracker
+  device: mix2xiaomishouji
+  icon_on: fa-home
+  icon_off: fa-briefcase
+  icon_style_active: "top: 35px;"
+  icon_style_inactive: "top: 35px;"
+
+me:
+  title: 墨澜
+  widget_type: device_tracker
+  device: iphone7
+  icon_on: fa-home
+  icon_off: fa-briefcase
+  icon_style_active: "top: 35px;"
+  icon_style_inactive: "top: 35px;"
+
+mom:
+  title: 妈妈
+  widget_type: device_tracker
+  device: chenxindeiphone
+  icon_on: fa-home
+  icon_off: mdi-cards-playing-outline
+  icon_style_active: "top: 35px;"
+  icon_style_inactive: "top: 35px;"
+
+climate:
+  title: 空调
+  widget_type: climate
+  entity: climate.mi_acpartner
+  step: 1
+  units: "&deg;C"
+
+news:
+
+  widget_type: rss
+  entity: news
+  interval: 60
+  text_style: "font-size: 170%; margin-top: 10px;"
+
+reload:
+  widget_type: reload
+
+layout:
+    - air, air_pollutant, sunrise, sunset, plant
+    - aqi_cn, aqi_us, tiderise, tidedown, window
+    - indoor_temp, indoor_humid, dad, mom, me
+    - light_bedside, light_gateway, light_strip, light_desklamp, climate

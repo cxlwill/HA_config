@@ -1,0 +1,211 @@
+/* SVG shapes */
+
+svg, svg * {
+  vector-effect: non-scaling-stroke !important;
+  pointer-events: all !important;
+  background-color: var(--primary-background-color);
+}
+
+/* Hover over */
+
+.entity:hover {
+  stroke: #03A9F4 !important;
+  stroke-width: 1px !important;
+  stroke-opacity: 1 !important;
+}
+
+/* Bootstrap succsss */
+
+.success-text {
+  fill: #3c763d !important;
+}
+
+.success-background, .success-text-background {
+  fill: #dff0d8 !important;
+  fill-opacity: 1 !important;
+  stroke: #d6e9c6 !important;
+  stroke-width: 1px !important;
+}
+
+/* Bootstrap info */
+
+.info-text {
+  fill: #31708f !important;
+}
+
+.info-background, .info-text-background {
+  fill: #B8B8B8 !important;
+  fill-opacity: 1 !important;
+  stroke: #B8B8B8 !important;
+  stroke-width: 1px !important;
+}
+
+/* Bootstrap warning */
+
+.warning-text {
+  fill: #8a6d3b !important;
+}
+
+.warning-background, .warning-text-background  {
+  fill: #FF0033 !important;
+  fill-opacity: 1 !important;
+  stroke: #FF0033 !important;
+  stroke-width: 1px !important;
+}
+
+/* Bootstrap danger */
+
+.danger-text {
+  fill: #a94442 !important;
+}
+
+.danger-background, .danger-text-background {
+  fill: #f2dede !important;
+  fill-opacity: 1 !important;
+  stroke: #ebccd1 !important;
+  stroke-width: 1px !important;
+}
+
+
+/* 灯 */
+
+.light-off {
+  opacity: 0 !important;
+}
+
+.light-on {
+  opacity: 1 !important;
+}
+
+
+/* 温度传感器 */
+
+.temp-low {
+  fill: #0066FF !important;
+  fill-opacity: 1 !important;
+}
+
+.temp-average {
+  fill: #9C9C9C !important;
+  fill-opacity: 1 !important;
+}
+
+.temp-high {
+  fill: #FF6633 !important;
+  fill-opacity: 1 !important;
+}
+
+/* Humidity sensor */
+
+.hum-low {
+  fill: #FF9933 !important;
+  fill-opacity: 1 !important;
+}
+
+.hum-average {
+  fill: #9C9C9C !important;
+  fill-opacity: 1 !important;
+}
+
+.hum-high {
+  fill: #87CEFA !important;
+  fill-opacity: 1 !important;
+}
+
+
+/* 闪烁动画 */
+@keyframes mymove {
+  50% { opacity: 0; }
+}
+
+@-webkit-keyframes mymove {
+  50% { opacity: 0; }
+}
+
+/* 盆栽 */
+.healthy {
+  fill: #228B22 !important;
+  fill-opacity: 1 !important;
+}
+
+.unhealthy {
+  fill:   #FF4500 !important;
+  fill-opacity: 1 !important;
+  position: relative !important;
+  animation: mymove 3s infinite ease !important;
+  -webkit-animation: mymove 3s infinite ease !important;
+}
+/* 空调 */
+.ac-off {
+  opacity: 1 !important;
+}
+
+.ac-on {
+  position: relative !important;
+  animation: mymove 3s infinite ease !important;
+  -webkit-animation: mymove 3s infinite ease !important;
+}
+
+
+/* 显示屏 */
+.screen {
+  font-size: 20px !important;
+  fill: white !important;
+  position: relative !important;
+  animation: mymove 10s infinite ease !important;
+  -webkit-animation: mymove 10s infinite ease !important;
+}
+
+/* 早晚 */
+.daytime {
+  fill: #ffffff !important;
+  fill-opacity: 1 !important;
+}
+
+.night {
+  fill: #000000 !important;
+  fill-opacity: 0.7 !important;
+}
+
+.sunup {
+  opacity: 1 !important;
+  fill: #FFFFFF !important;
+  fill-opacity: 1 !important;
+}
+
+.sundown {
+  opacity: 0 !important;
+  fill-opacity: 0 !important;
+}
+
+/* 星星 */
+.star {
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow: 165px 540px #FFF , 74px 215px #fff , 149px 335px #fff , 69px 327px #fff , 17px 318px #fff , 131px 443px #fff , 46px 280px #fff , 129px 38px #fff, 138px 42px #fff, 108px 194px #fff , 150px 339px #fff , 151px 489px #fff , 156px 326px #fff , 140px 447px #fff , 3px 231px #fff;
+    animation: animStar 50s linear infinite;
+}
+
+.star:after {
+  content: " ";
+  position: absolute;
+  top: 2000px;
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  box-shadow: 165px 540px #FFF , 74px 215px #fff , 149px 335px #fff , 69px 327px #fff , 17px 318px #fff , 131px 443px #fff , 46px 280px #fff , 129px 38px #fff, 138px 42px #fff, 108px 194px #fff , 150px 339px #fff , 151px 489px #fff , 156px 326px #fff , 140px 447px #fff , 3px 231px #fff;
+}
+
+@keyframes animStar {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
+}
+
+.staroff {
+    opacity: 0 !important;
+}

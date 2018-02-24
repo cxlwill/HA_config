@@ -1,0 +1,43 @@
+- id: Turn_off_AC
+  alias: AirConditioner
+  trigger:
+  - entity_id: binary_sensor.door_window_sensor_158d00019e0f1d
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: climate.mi_acpartner
+    state: cool
+  action:
+  - data:
+      operation_mode: 'off'
+    entity_id: climate.mi_acpartner
+    service: climate.set_operation_mode
+
+- action:
+  - alias: Call money back home
+    data:
+      message: "\u94B1\u94B1\u94B1\u94B1\uFF0C\u5168\u90E8\u90FD\u662F\u6211\u7684"
+    service: tts.baidu_say
+  alias: ' Money'
+  condition: []
+  id: '1506689873140'
+  trigger:
+  - entity_id: image_processing.microsoftface_ffmpeg
+    platform: state
+    to: Money
+    
+- action:
+  - alias: Mom
+    data:
+      message: "\u8FD9\u4E0D\u662F\u4E16\u754C\u4E0A\u6700\u7F8E\u7684\u5973\u4EBA\
+        \u5417"
+    service: tts.baidu_say
+  alias: Mama
+  condition: []
+  id: '1506690475178'
+  trigger:
+  - entity_id: image_processing.microsoftface_ffmpeg
+    platform: state
+    to: Mama

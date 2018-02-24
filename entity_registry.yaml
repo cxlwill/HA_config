@@ -1,0 +1,18 @@
+sensor.iphone_7_battery_state:
+  platform: ios
+  unique_id: state_iphone7
+sensor.iphone_7_battery_level:
+  platform: ios
+  unique_id: level_iphone
+media_player.apple_tv:
+  platform: apple_tv
+  unique_id: b09648c1358565ba1888d3edf9d6981ceec53429aee59bc131f91bc7cad34ca4
+remote.apple_tv:
+  platform: apple_tv
+  unique_id: b09648c1358565ba1888d3edf9d6981ceec53429aee59bc131f91bc7cad34ca4
+sensor.iphone_7_battery_state_2:
+  platform: ios
+  unique_id: state_iphone
+sensor.iphone_7_battery_level_2:
+  platform: ios
+  unique_id: level_iphone7

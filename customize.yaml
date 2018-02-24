@@ -1,0 +1,295 @@
+sensor.iframe:
+  custom_ui_state_card: state-card-iframe
+  config:
+    height: 350
+    width: 108
+    scale: 1
+    url: https://embed.windy.com/embed2.html
+sensor.miweather_precipitation:
+  extra_data_template: 明日${attributes.明天}
+  friendly_name: 降水量
+binary_sensor.motion_sensor_158d000155b4be:
+  friendly_name: 人体传感器
+  custom_ui_state_card: state-card-custom-ui
+  extra_data_template: 剩余电量${attributes.battery_level}%
+light.gateway_light_f0b429b43088:
+  friendly_name: 网关灯
+light.lamp:
+  friendly_name: 台灯
+  icon: mdi:lamp
+  homebridge_hidden: true
+sensor.humidity_158d00010e50d7:
+  friendly_name: 湿度
+  icon: mdi:water
+  custom_ui_state_card: state-card-custom-ui
+  extra_data_template: 剩余电量${attributes.battery_level}%
+  homebridge_sensor_type: humidity
+sensor.temperature_158d00010e50d7:
+  friendly_name: 温度
+  custom_ui_state_card: state-card-custom-ui
+  extra_data_template: 剩余电量${attributes.battery_level}%
+binary_sensor.door_window_sensor_158d00019e0f1d:
+  friendly_name: 窗户
+  device_class: opening
+  homebridge_opening_type: window
+  custom_ui_state_card: state-card-custom-ui
+  extra_data_template: 剩余电量${attributes.battery_level}%
+binary_sensor.switch_158d0001872099:
+  friendly_name: 无线开关
+sun.sun:
+  hidden: true
+sensor.moon:
+  friendly_name: 月亮
+  icon: mdi:brightness-2
+  hidden: true
+sensor.moon_state:
+  friendly_name: 月相
+  icon: mdi:brightness-2
+sensor.illumination_f0b429b43088:
+  friendly_name: 亮度
+  homebridge_sensor_type: light
+  homebridge_hidden: true
+  hidden: true
+switch.plug_158d00011c85e2:
+  friendly_name: 魔镜
+  icon: mdi:glassdoor
+sensor.tide:
+  friendly_name: 潮汐
+  icon: mdi:waves
+sensor.sun_state:
+  hidden: true
+sensor.sunrise:
+  icon: mdi:weather-sunset-up
+sensor.sunset:
+  icon: mdi:weather-sunset-down
+sensor.coconut_temperature:
+  friendly_name: 室外温度
+  hidden: true
+  homebridge_hidden: true
+sensor.coconut_light_intensity:
+  friendly_name: 室外光照
+  homebridge_hidden: true
+sensor.games:
+  icon: mdi:gamepad-variant
+sensor.coconut_battery:
+  hidden: true
+sensor.coconut_moisture:
+  friendly_name: 土壤湿度
+  hidden: true
+  icon: mdi:cup-water
+sensor.coconut_conductivity:
+  friendly_name: 土壤肥力
+  hidden: true
+  icon: mdi:flower
+scene.sleep:
+  friendly_name: 晚安
+  icon: mdi:sleep
+  homebridge_hidden: true
+scene.exit:
+  friendly_name: 离开
+  icon: mdi:logout
+  homebridge_hidden: true
+light.yeelight_strip_286c072f6ce6:
+  friendly_name: 灯带
+  homebridge_hidden: true
+  icon: mdi:spotlight-beam
+media_player.playstation_4:
+  homebridge_hidden: true
+media_player.speaker_1:
+  friendly_name: 喇叭
+  homebridge_hidden: true
+binary_sensor.plant_fertility:
+  hidden: true
+binary_sensor.plant_moisture:
+  hidden: true
+  homebridge_hidden: true
+binary_sensor.co:
+  hidden: true
+  homebridge_hidden: false
+sensor.iphone_7_battery_level:
+  hidden: true
+  homebridge_hidden: true
+sensor.iphone_7_battery_state:
+  hidden: true
+  homebridge_hidden: true
+media_player.apple_tv:
+  hidden: true
+  homebridge_hidden: true
+remote.apple_tv:
+  hidden: true
+  homebridge_hidden: true
+climate.mi_acpartner:
+  friendly_name: 空调
+  homebridge_hidden: true
+  icon: mdi:air-conditioner
+sensor.chinese_air_pollution_level:
+  hidden: true
+sensor.chinese_air_quality_index:
+  friendly_name: 污染指数-中标
+sensor.chinese_main_pollutant:
+  friendly_name: 主要污染物
+sensor.us_air_pollution_level:
+  hidden: true
+sensor.us_air_quality_index:
+  friendly_name: 污染指数-美标
+  homebridge_sensor_type: air_quality
+sensor.us_main_pollutant:
+  hidden: true
+sensor.season:
+  hidden: true
+automation.airconditioner:
+  friendly_name: 开窗关空调
+  homebridge_hidden: true
+automation._money:
+  friendly_name: 钱到了
+  homebridge_hidden: true
+automation.mama:
+  friendly_name: 呼叫妈咪
+  homebridge_hidden: true
+device_tracker.iphone7:
+  friendly_name: 我
+  icon: mdi:glasses
+  homebridge_hidden: true
+device_tracker.chenxindeiphone:
+  friendly_name: 妈妈
+  icon: mdi:human-female
+  homebridge_hidden: true
+device_tracker.redmi3shongmishouji:
+  friendly_name: 爸爸
+  homebridge_hidden: true
+plant.coconut:
+  friendly_name: 袖珍椰子
+vacuum.xiaomi_vacuum_cleaner:
+  friendly_name: 米家扫地机器人
+  homebridge_hidden: true
+sensor.vultr_sa_current_bandwidth_used:
+  friendly_name: US-用量
+sensor.vultr_sa_pending_charges:
+  friendly_name: US-花费
+sensor.iphone_7_battery_level_2:
+  hidden: true
+  homebridge_hidden: true
+sensor.iphone_7_battery_state_2:
+  hidden: true
+  homebridge_hidden: true
+media_player.samsung_6_series_65_ua65mu6880:
+  friendly_name: Samsung TV
+  homebridge_hidden: true
+switch.uk:
+  homebridge_hidden: true
+switch.us:
+  homebridge_hidden: true
+sensor.xiamengang:
+  homebridge_hidden: true
+  hidden: true
+sensor.tide_down:
+  icon: mdi:format-align-bottom
+sensor.tide_up:
+  icon: mdi:format-align-top
+sensor.dark_sky_pressure:
+  friendly_name: 气压
+  homebridge_hidden: true
+sensor.dark_sky_apparent_temperature:
+  friendly_name: 体感温度
+  hidden: true
+sensor.dark_sky_wind_speed:
+  friendly_name: 风速
+  homebridge_hidden: true
+sensor.dark_sky_daily_low_temperature:
+  friendly_name: 最低温
+  homebridge_hidden: true
+sensor.dark_sky_daily_high_temperature:
+  friendly_name: 最高温
+  homebridge_hidden: true
+sensor.dark_sky_precip_probability:
+  friendly_name: 降水可能性
+  homebridge_hidden: true
+sensor.dark_sky_temperature:
+  friendly_name: 当前温度
+  homebridge_hidden: true
+sensor.dark_sky_icon:
+  hidden: true
+  homebridge_hidden: true
+sensor.dark_sky_uv_index:
+  friendly_name: 紫外线
+  homebridge_hidden: true
+sensor.dark_sky_summary:
+  friendly_name: 概况
+  homebridge_hidden: true
+sensor.dark_sky_humidity:
+  friendly_name: 室外湿度
+  homebridge_hidden: true
+sensor.dark_sky_wind_bearing:
+  friendly_name: 风向
+  homebridge_hidden: true
+sensor.dark_sky_precip_intensity:
+  friendly_name: 降水量
+  homebridge_hidden: true
+input_text.dummy_tiles:
+  config:
+    columns: 3
+    entities:
+    - entity: light.gateway_light_f0b429b43088
+      icon: mdi:lightbulb
+    - column: 2
+      entity: light.lamp
+      icon: mdi:lamp
+      row: 1
+    - column: 3
+      entity: light.yeelight_strip_286c072f6ce6
+      icon: mdi:ceiling-light
+      row: 1
+    row_height: 75px
+  custom_ui_state_card: state-card-tiles
+  friendly_name: 砖块
+group.all_automations: {}
+device_tracker.philipslightbulb_miio61776162:
+  hidden: true
+  homebridge_hidden: true
+device_tracker.iphone_2:
+  hidden: true
+  homebridge_hidden: true
+light.philips_smart_led_ball:
+  friendly_name: 床头灯
+media_player.01c8c56ed00441db91780bbd0a507e20:
+  friendly_name: DLNA5
+  homebridge_hidden: true
+media_player.7b2685ec242254b8ffffffffc7831a22:
+  friendly_name: DLNA02
+  homebridge_hidden: true
+media_player.15ad4db6326b49488189b377d9674839:
+  friendly_name: 小爱同学
+  homebridge_hidden: true
+media_player.41b575801e9b11b287ad00904c332211:
+  friendly_name: DLNA04
+  homebridge_hidden: true
+media_player.461cd2a2f181abee18fd2e828401a34c:
+  friendly_name: 小米盒子
+  homebridge_hidden: true
+binary_sensor.wall_switch_both_158d0001f48167:
+  friendly_name: 墙壁开关(双)
+binary_sensor.wall_switch_left_158d0001f48167:
+  friendly_name: 墙壁开关(左)
+binary_sensor.wall_switch_right_158d0001f48167:
+  friendly_name: 墙壁开关(右)
+automation.waterplant:
+  friendly_name: 浇花提醒
+  homebridge_hidden: true
+group.miweather:
+  friendly_name: 小米天气
+group.iframes:
+  friendly_name: 天气实况
+device_tracker.mix2xiaomishouji:
+  homebridge_hidden: true
+sensor.miweather_aqi:
+  friendly_name: 空气质量
+sensor.miweather_feelslike:
+  friendly_name: 体感温度
+sensor.miweather_humidity:
+  friendly_name: 室外湿度
+sensor.miweather_temperature:
+  friendly_name: 室外温度
+sensor.miweather_uv:
+  friendly_name: 紫外线强度
+sensor.miweather_weather:
+  friendly_name: 天气概况

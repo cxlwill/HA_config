@@ -1,0 +1,60 @@
+bedroom:
+  name: 卧室
+  view: no
+  control: hidden
+  entities:
+    - light.gateway_light_f0b429b43088
+    - light.yeelight_strip_286c072f6ce6
+    - sensor.humidity_158d00010e50d7
+    - sensor.temperature_158d00010e50d7
+    - sensor.illumination_f0b429b43088
+    - binary_sensor.motion_sensor_158d000155b4be
+    - binary_sensor.door_window_sensor_158d00019e0f1d
+    - switch.plug_158d00011c85e2
+    - climate.mi_acpartner
+
+nature:
+  name: 自然
+  view: no
+  entities:
+    - sensor.seasons
+    - sensor.sun_state
+    - sensor.moon_state
+    - sensor.coconut_temperature
+    - sensor.coconut_light_intensity
+    - sensor.tide
+
+plant:
+  name: 盆栽
+  view: no
+  entities:
+    - sensor.coconut_moisture
+    - sensor.coconut_conductivity
+
+game:
+  name: 游戏
+  view: no
+  entities:
+    - sensor.games
+    
+scene_rename:
+  name: 场景
+  view: no
+  entities:
+    - scene.exit
+    - scene.sleep
+
+air_quality:
+  name: 空气质量
+  view: no
+  entities:
+    - sensor.air_index
+    - sensor.chinese_air_quality_index
+    - sensor.us_air_quality_index
+    - sensor.chinese_main_pollutant
+
+automation_rename:
+  name: 自动化
+  view: no
+  entities:
+    - automation.airconditioner

@@ -1,0 +1,607 @@
+#——————————#
+# 基本设置  #
+#——————————#
+homeassistant:
+  # 名称，可为中文
+  name: 家
+  # 纬度
+  latitude: !secret latitude
+  # 经度
+  longitude: !secret longitude
+  # 海拔
+  elevation: 11
+  # 度量单位，这里选择“米”
+  unit_system: metric
+  # 时区
+  time_zone: Asia/Shanghai
+  # 设备个性化文件分离
+  customize: !include customize.yaml
+  # 设备个性化全局设定
+  customize_domain:
+    group:
+      homebridge_hidden: true
+
+# 欢迎信息
+# introduction:
+# 原生地图
+#map:
+
+#——————————#
+#  云服务   #
+#——————————#
+cloud:
+  alexa:
+    filter:
+      include_domains:
+        - switch
+        - light
+        - vacuum
+    entity_config:
+      light.gateway_light_f0b429b43088:
+        name: Gateway Light
+        description: The Xiaomi Gateway Light
+      light.lamp:
+        name: Desk Lamp
+        description: Yeelight Lamp
+      light.yeelight_strip_286c072f6ce6:
+        name: LightStrip
+        description: Yeelight strip
+      switch.plug_158d00011c85e2:
+        name: Magic Mirror
+        description: Xiaomi Zigbee Switch
+        display_categories: SMARTPLUG
+
+#——————————#
+# 自定义 UI #
+#——————————#
+customizer:
+  custom_ui: local
+
+input_text:
+  dummy_tiles:
+    name: dummy
+
+#——————————#
+#  前端设置 #
+#——————————#
+frontend:
+  themes: !include themes.yaml
+  extra_html_url:
+    - /local/custom_ui/state-card-tiles.html
+    - /local/custom_ui/state-card-iframe.html
+  extra_html_url_es5:
+    - /local/custom_ui/state-card-tiles_es5.html
+# 设定 JS 版本，auto、latest、es5
+#  javascript_version: latest
+
+#清单
+shopping_list:
+
+# 前端配置面板
+config:
+
+# MQTT 服务
+mqtt:
+
+# 网络设置
+http:
+  api_password: !secret http_password
+  trusted_networks:
+    - 127.0.0.1
+    - ::1
+    - 192.168.50.0/24
+  base_url: 
+  ssl_certificate:
+  ssl_key:
+
+# 开启更新检测，默认关闭，需要开启请取消备注
+# updater:
+
+# 开启自动设备嗅探
+discovery:
+  ignore:
+    - samsung_tv
+
+# ios设备，可获取电量及充电信息
+ios:
+
+# 原生语音指令
+conversation:
+  intents:
+    TurnOnDevice:
+      - 打开{item}
+      - 把{item}打开
+    TurnOffDevice:
+      - 关闭{item}
+      - 把{item}关上
+    Request:
+      - 查询{item}
+    Rain:
+      - 明天会下雨吗
+#    HassShoppingListAddItem:
+#      - 添加{item}到清单
+
+# 历史记录
+history:
+  exclude:
+    domains:
+      - automation
+      - camera
+      - group
+      - scene
+      - sun
+      - zone
+
+    entities:
+      - sensor.moon_state
+      - sensor.season
+
+# 事件log
+logbook:
+
+logger:
+  default: warning
+  logs:
+    media_player.samsung_6_series_65_ua65mu6880: error
+
+#—————————#
+#  数据库  #
+#—————————#
+recorder:
+  db_url: postgresql://homeassistant:homeassistant@192.168.50.152/homeassistant
+  purge_interval: 2
+  purge_keep_days: 5
+
+
+
+#——————————#
+# 安卓摄像头 #
+#——————————#
+#android_ip_webcam:
+#  - host: 192.168.50.134
+
+
+# 追踪日出日落
+sun:
+
+#—————————#
+# 语音合成 #
+#—————————#
+tts:
+# 百度
+  - platform: baidu
+    app_id: secret baidu_appid
+    api_key: !secret baidu_apikey
+    secret_key: !secret baidu_key
+    speed: 5
+    pitch: 5
+    volume: 5
+    person: 4
+# 微软
+#  - platform: microsoft
+#    api_key: !secret microsoft_tts
+#    language: 'zh-cn'
+#    gender: 'Female'
+#    type: 'HuihuiRUS'
+
+#—————————#
+# 通知推送 #
+#—————————#
+notify:
+  - name: slack
+    platform: slack
+    api_key: !secret slack_token
+    default_channel: '#ha'
+
+
+
+#———————————#
+# 小米Zigbee #
+#———————————#
+xiaomi_aqara:
+  discovery_retry: 10
+  gateways:
+    - mac: F0B429B43088
+      key: !secret xiaomi_key
+    - mac: 34CE00965BF1
+      key: !secret ac_key
+
+#———————————#
+#  Yeelight #
+#———————————#
+light:
+  - platform: yeelight
+    devices:
+      192.168.50.124:
+        name: Lamp
+
+  - platform: xiaomi_miio
+    name: Philips Smart LED Ball
+    host: 192.168.50.231
+    token: !secret philips_token
+
+#—————————#
+# 设备追踪 #
+#—————————#
+device_tracker:
+  - platform: asuswrt
+    host: 192.168.50.1
+    username: admin
+    password: !secret router_password
+    protocol: telnet
+    track_new_devices: no
+    interval_seconds: 60
+
+# IFTTT
+ifttt:
+  key: !secret ifttt_key
+
+# Vultr
+#vultr:
+#  api_key: !secret vultr_key
+
+#———————————#
+# 数值传感器 #
+#——————————#
+sensor:
+#———————————#
+#  小米天气  #
+#——————————#
+#  - platform: xiaomiweather
+#    scan_interval: 600
+#    all_sensors:
+#      - weather
+#      - feelslike
+#      - aqi
+#      - temperature
+#      - humidity
+#      - precipitation
+#      - uv
+
+#——————————#
+#  Darsky  #
+#——————————#
+  - platform: darksky
+    api_key: !secret darksky_key
+    monitored_conditions:
+      - summary
+      - temperature
+      - apparent_temperature
+      - temperature_max
+      - temperature_min
+      - wind_speed
+      - pressure
+      - uv_index
+      - icon
+      - precip_probability
+      - precip_intensity
+      - humidity
+      - wind_bearing
+
+#————————#
+#  潮汐  #
+#———————#
+  - platform: worldtidesinfo
+    api_key: !secret worldtide_key
+    name: xiamengang
+
+  - platform: template
+    sensors:
+      tide_down:
+        value_template: '{{ as_timestamp(states.sensor.xiamengang.attributes.high_tide_time_utc) | timestamp_custom("%H:%M") }}'
+        friendly_name: "下次退潮"
+      tide_up:
+        value_template: '{{ as_timestamp(states.sensor.xiamengang.attributes.low_tide_time_utc) | timestamp_custom("%H:%M") }}'
+        friendly_name: "下次涨潮"
+
+#————————#
+#  月相  #
+#———————#
+  - platform: moon
+  - platform: template
+    sensors:
+      moon_state:
+        value_template: '{% if is_state("sersor.moon", "New moon") %}新月{% elif is_state("sersor.moon", "Waxing crescent") %}娥眉月{% elif is_state("sersor.moon", "First quarter") %}上弦月{% elif is_state("sersor.moon", "Waxing gibbous") %}盈凸月{% elif is_state("sersor.moon", "Full moon") %}满月{% elif is_state("sersor.moon", "Waning gibbous") %}亏凸月{% elif is_state("sersor.moon", "Last quarter") %}下弦月{% else %}残月{% endif %}'
+        friendly_name: '月亮'
+
+#————————#
+#  太阳  #
+#———————#
+  - platform: template
+    sensors:
+      sun_state:
+        value_template: '{% if is_state("sun.sun", "above_horizon") %}日出{% else %}日落{% endif %}'
+        friendly_name: '太阳'
+
+  - platform: template
+    sensors:
+      sunrise:
+        value_template: '{{ ((as_timestamp(states.sun.sun.attributes.next_rising)) | timestamp_local) [11:16] }}'
+        friendly_name: '日出时间'
+
+  - platform: template
+    sensors:
+      sunset:
+        value_template: '{{ ((as_timestamp(states.sun.sun.attributes.next_setting)) | timestamp_local) [11:16] }}'
+        friendly_name: '日落时间'
+
+#——————————————#
+# 花花草草监测仪 #
+#——————————————#
+  - platform: miflora
+    mac: 'C4:7C:8D:64:DD:98'
+    name: coconut
+    force_update: true
+    median: 2
+
+# PS4游戏
+#  - platform: template
+#    sensors:
+#      games:
+#        value_template: '{% if states.media_player.playstation_4 %}{{ states.media_player.playstation_4.attributes.source }}{% else %}无{% endif %}'
+#        friendly_name: '游戏名'
+
+#———————————#
+# Airvisual #
+#———————————#
+  - platform: airvisual
+    api_key: !secret airvisual_key
+    monitored_conditions:
+      - us
+      - cn
+    radius: 500
+    show_on_map: false
+
+  - platform: template
+    sensors:
+      air_index:
+        value_template: '{% if is_state("sensor.chinese_air_pollution_level", "Good") %}优{% elif is_state("sensor.chinese_air_pollution_level", "Moderate") %}中等{% elif is_state("sensor.chinese_air_pollution_level", "Unhealthy for Sensitive Groups") %}轻度污染{% elif is_state("sensor.chinese_air_pollution_level", "Unhealthy") %}不健康{% elif is_state("sensor.chinese_air_pollution_level", "Very Unhealthy") %}极不健康{% else %}有毒害{% endif %}'
+        friendly_name: '空气质量等级'
+
+# 季节
+  - platform: season
+    type: meteorological
+
+  - platform: template
+    sensors:
+      seasons:
+        value_template: '{% if is_state("sensor.season", "Spring") %}春季{% elif is_state("sensor.season", "Summer") %}夏季{% elif is_state("sensor.season", "Autumn") %}秋季{% else %}冬季{% endif %}'
+        friendly_name: '季节'
+        icon_template: >
+          {% if is_state("sensor.season", "Spring") %}
+            mdi:leaf
+          {% elif is_state("sensor.season", "Summer") %}
+            mdi:beach
+          {% elif is_state("sensor.season", "Autumn") %}
+            mdi:weather-windy-variant
+          {% else %}
+            mdi:snowflake
+          {% endif %}
+
+  - platform: template
+    sensors:
+      iframe:
+        value_template: iframe
+
+#———————#
+# 播放器 #
+#———————#
+media_player:
+  #—————#
+  # PS4 #
+  #—————#
+#  - platform: ps4
+#    host: 192.168.50.25
+#    cmd: 'sudo ps4-waker search -d 192.168.50.25 | grep  "200 Ok" > null && (echo "true") || (echo "false")'
+  #—————#
+  # VLC #
+  #—————#
+  - platform: vlc
+    name: speaker_1
+    arguments: '--alsa-audio-device=hw:0,1'
+  #—————————#
+  # 三星电视 #
+  #—————————#
+  - platform: samsungtv
+    host: 192.168.50.194
+    port: 8001
+
+#———————————#
+# 数值传感器 #
+#——————————#
+#将花花草草监测仪模拟成动作检测仪以在 Homekit 中使用
+binary_sensor:
+  - platform: template
+    sensors:
+      plant_moisture:
+        value_template: '{{ states.sensor.coconut_moisture.state | float <= 20 }}'
+        friendly_name: '湿度状态'
+  - platform: template
+    sensors:
+      plant_fertility:
+        value_template: '{{ states.sensor.coconut_conductivity.state | float <= 300 }}'
+        friendly_name: '肥力状态'
+  - platform: template
+    sensors:
+      co:
+        friendly_name: '花'
+        device_class: 'motion'
+        value_template: >-
+          {%- if is_state("binary_sensor.plant_moisture", "off")
+              and is_state("binary_sensor.plant_fertility", "off") -%}
+          False
+          {%- else -%}
+          True
+          {%- endif -%}
+
+#—————————#
+# 空调伴侣 #
+#—————————#
+climate:
+  - platform: mi_acpartner
+    name: mi_acpartner
+    host: 192.168.50.236
+    token: !secret ac_token
+
+#—————————#
+# 地图卡片 #
+#—————————#
+#camera:
+#  name: Home
+#  platform: generic
+#  still_image_url: http://restapi.amap.com/v3/staticmap?location=xxxx,xxxx&zoom=14&scale=2&size=305*185&traffic=1&&labels=家,0,0,35,0xFFFFFF,0x5288d8:xxx,xx&key=xxxxxxxxxxxxx
+#  limit_refetch_to_url_change: false
+
+#—————————#
+# ffmpeg #
+#—————————#
+ffmpeg:
+  ffmpeg_bin: /usr/bin/ffmpeg
+
+#camera:
+#  - platform: ffmpeg
+#    input: http://192.168.50.152:8090
+
+#—————————#
+# 智能语音 #
+#—————————#
+alexa:
+
+intent_script:
+  LocateIntent:
+    speech:
+      text: Mom is {{ states('device_tracker.chenxindeiphone') }}
+  TurnonlightIntent:
+    speech:
+      text: Light is on
+    action:
+      service: light.turn_on
+      data:
+        entity_id: light.gateway_light_f0b429b43088
+  TurnofflightIntent:
+    speech:
+      text: Light is off
+    action:
+      service: light.turn_off
+      data:
+        entity_id: group.all_lights
+# 开启设备
+  TurnOnDevice:
+    speech:
+      text: 已打开{{ item }}
+    action:
+      service: homeassistant.turn_on
+      data_template:
+        entity_id: >
+          {% if item=="台灯" %}
+            light.lamp
+          {% elif item=="夜灯" %}
+            light.gateway_light_f0b429b43088
+          {% elif item=="灯带" %}
+            light.yeelight_strip_286c072f6ce6
+          {% elif item=="所有灯" %}
+            group.all_lights
+          {% elif item=="魔镜" %}
+            switch.plug_158d00011c85e2
+          {% endif %}
+# 关闭设备
+  TurnOffDevice:
+    speech:
+      text: 已关闭{{ item }}
+    action:
+      service: homeassistant.turn_off
+      data_template:
+        entity_id: >
+          {% if item=="台灯" %}
+            light.lamp
+          {% elif item=="夜灯" %}
+            light.gateway_light_f0b429b43088
+          {% elif item=="灯带" %}
+            light.yeelight_strip_286c072f6ce6
+          {% elif item=="所有灯" %}
+            group.all_lights
+          {% elif item=="魔镜" %}
+            switch.plug_158d00011c85e2
+          {% endif %}
+#查询
+  Request:
+    speech:
+      text: >
+        {% if item=="室内温度" %}
+          现在室内的温度是{{ states.sensor.temperature_158d00010e50d7.state }}摄氏度。
+        {% elif item=="室内湿度" %}
+          现在室内的湿度是百分之{{ states.sensor.humidity_158d0001573875.state }}。
+        {% elif item=="室外温度" %}
+          现在室外的温度是{{ states.sensor.dark_sky_apparent_temperature.state }}摄氏度。
+        {% endif %}
+#降雨
+  Rain:
+    speech:
+      text: 明天的降水可能性为百分之{{ states.sensor.dark_sky_precip_probability.state }}。
+
+#—————————#
+# 植物监测 #
+#—————————#
+plant:
+  Coconut:
+    sensors:
+      temperature: sensor.coconut_temperature
+      brightness: sensor.coconut_light_intensity
+      moisture: sensor.coconut_moisture
+      battery: sensor.coconut_battery
+      conductivity: sensor.coconut_conductivity
+    min_moisture: 20
+    max_moisture: 70
+    min_battery: 10
+    min_conductivity: 345
+    max_conductivity: 3000
+
+#————————#
+# 扫地机 #
+#———————#
+vacuum:
+  - platform: xiaomi_miio
+    host: 192.168.50.196
+    token: !secret robot
+
+
+# InfluxDB
+influxdb:
+  host: localhost
+
+#————————#
+#  场景  #
+#———————#
+scene:
+  - name: sleep
+    entities:
+      group.all_lights: off
+  - name: exit
+    entities:
+      group.all_lights: off
+      group.all_switches: off
+      media_player.playstation_4: off
+
+#——————————————#
+#  自定义面板   #
+#—————————————#
+panel_custom:
+  - name: floorplan
+    sidebar_title: '平面图'
+    sidebar_icon: mdi:bulletin-board
+    url_path: floorplan
+    config: !include floorplan.yaml
+
+  - name: inkwavemap
+    sidebar_title: '地图'
+    sidebar_icon: mdi:map
+    url_path: inkwavemap
+
+# 群组管理
+group: !include groups.yaml
+
+# 自动化
+automation: !include automations.yaml
+
+# 脚本
+script: !include scripts.yaml

@@ -1,0 +1,94 @@
+night:
+  # 主界面 #
+  primary-color: "#1DE9B6" # 主 UI 字体颜色
+  primary-background-color: "#303030" # 其他部件背景色 (dialogs, e.t.c)
+  secondary-background-color: "#303030" # 主 UI 背景颜色
+  paper-card-background-color: "#424242" # 卡片背景颜色
+  paper-item-icon-color: "#1DE9B6" # Icon colour
+  primary-text-color: "#FFFFFF" # 首选字体颜色
+  secondary-text-color: "rgba(255, 255, 255, 0.7)" # 次字体颜色
+  disabled-text-color: "rgba(255, 255, 255, 0.5)" # Disabled text colour
+  divider-color: "rgba(255, 255, 255, 0.12)" # Divider colour
+  paper-card-header-color: "#FFFFFF" # 卡片标题颜色
+
+  # 侧边栏 #
+  paper-listbox-background-color: "#424242" # 背景色
+  paper-listbox-color: "#FFFFFF" # 字体色
+  paper-grey-200: "#616161" # 选中项背景色
+
+  # 开关 #
+  paper-toggle-button-checked-ink-color: "#1DE9B6"
+  paper-toggle-button-checked-button-color: "#1DE9B6"
+  paper-toggle-button-checked-bar-color: "#1DE9B6"
+
+  # Sliders #
+  paper-slider-knob-color: "#1DE9B6"
+  paper-slider-knob-start-color: "#1DE9B6"
+  paper-slider-pin-color: "#1DE9B6"
+  paper-slider-active-color: "#1DE9B6"
+  paper-slider-secondary-color: "#33F2D8"
+      
+darkred:
+  # Main colors that can be changed
+  dark-primary-color: "#c66900"
+  disabled-text-color: "#545454"
+  divider-color: "rgba(255, 255, 255, 0.12)"
+  light-primary-color: "#e06c6c"
+  paper-card-background-color: "#1d1d1d"
+  paper-grey-200: "#191919"
+  paper-item-icon-color: "#d3d3d3"
+  paper-listbox-background-color: "#202020"
+  primary-background-color: "#303030"
+  primary-color: "#d32f2f"
+  primary-text-color: "#cfcfcf"
+  secondary-background-color: "#131313"
+  sidebar-text_-_background: "#62717b" 
+  # Colors based on variables, see above
+  paper-card-header-color: "var(--paper-item-icon-color)" 
+  paper-item-icon-active-color: "var(--primary-color)"
+  paper-item-icon_-_color: "var(--primary-text-color)"
+  paper-listbox-color: "var(--primary-text-color)"
+  paper-grey-50: "var(--primary-text-color)"
+  paper-slider-active-color: "var(--primary-color)"
+  paper-slider-knob-color: "var(--primary-color)"
+  paper-slider-knob-start-color: "var(--primary-color)"
+  paper-slider-pin-color: "var(--primary-color)"
+  paper-slider-secondary-color: "var(--light-primary-color)"
+  paper-toggle-button-checked-ink-color: "var(--dark-primary-color)"
+  paper-toggle-button-checked-button-color: "var(--primary-color)"
+  paper-toggle-button-checked-bar-color: "var(--light-primary-color)"
+  paper-toggle-button-unchecked-bar-color: "var(--primary-text-color)"
+  secondary-text-color: "var(--primary-color)"
+  table-row-background-color: "var(--paper-card-background-color)"
+  table-row-alternative-background-color: "var(--sidebar-text_-_background)"
+
+darkcyan:
+# Main colors that can be changed
+  primary-color: "#00bcd4"
+  disabled-text-color: "#545454"
+  divider-color: "rgba(255, 255, 255, 0.12)"
+  paper-card-background-color: "#4e4e4e"
+  paper-grey-200: "#191919"
+  paper-item-icon-color: "#d3d3d3"
+  paper-listbox-background-color: "#202020"
+  paper-listbox-color: "#FFFFFF"      
+  primary-background-color: "#303030"
+  primary-text-color: "#cfcfcf"      
+  secondary-background-color: "#2b2b2b"
+  secondary-text-color: "#04a7bc"
+# Colors based on variables, see above
+  label-badge-background-color: "var(--secondary-background-color)"
+  label-badge-text-color: "var(--text-primary-color)"
+  paper-card-header-color: "#var(--paper-item-icon-color)"
+  paper-grey-50: "var(--primary-text-color)"
+  paper-item-icon-active-color: "var(--primary-color)"
+  paper-item-icon_-_color: "var(--primary-text-color)"
+  paper-slider-active-color: "var(--primary-color)"
+  paper-slider-knob-color: "var(--primary-color)"
+  paper-slider-knob-start-color: "var(--primary-color)"
+  paper-slider-pin-color: "var(--primary-color)"
+  paper-slider-secondary-color: "var(--light-primary-color)"     
+  paper-toggle-button-checked-ink-color: "var(--dark-primary-color)"
+  paper-toggle-button-checked-button-color: "var(--primary-color)"
+  paper-toggle-button-checked-bar-color: "var(--light-primary-color)"
+  paper-toggle-button-unchecked-bar-color: "var(--primary-text-color)"

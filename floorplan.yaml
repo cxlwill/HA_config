@@ -1,0 +1,112 @@
+name: Demo Floorplan
+image: /local/custom_ui/floorplan/floorplan.svg
+stylesheet: /local/custom_ui/floorplan/floorplan.css
+
+warnings:
+date_format: YYYY-MMM-DD
+hide_app_toolbar:
+
+groups:
+  - name: Tempreature_sensor
+    entities:
+      - sensor.temperature_158d00010e50d7
+    text_template: '${entity.state ? entity.state + " °C": "unknown"}'
+    class_template: '
+      var temp = parseFloat(entity.state);
+      if (temp < 15)
+        return "temp-low";
+      else if (temp < 30)
+        return "temp-average";
+      else
+        return "temp-high";
+      '
+
+  - name: Humidity_sersor
+    entities:
+      - sensor.humidity_158d00010e50d7
+    text_template: '${entity.state ? entity.state + " %": "unknown"}'
+    class_template: '
+      var hum = parseFloat(entity.state);
+      if (hum < 30)
+        return "hum-low";
+      else if (hum < 80)
+        return "hum-average";
+      else
+        return "hum-high";
+      '
+  - name: Lights
+    entities:
+      - light.gateway_light_f0b429b43088
+#      - light.yeelight_strip_286c072f6ce6
+    states:
+      - state: 'on'
+        class: 'light-on'
+      - state: 'off'
+        class: 'light-off'
+    action:
+      service: toggle
+
+  - name: Plant
+    entities:
+      - plant.coconut
+    text_template: '${entity.state ? entity.state: "unknown"}'
+    class_template: '
+      var plantStatus = entity.state;
+      if (plantStatus == "ok")
+        return "healthy";
+      else
+        return "unhealthy";
+      '
+  - name: Sun
+    entities:
+      - sensor.sun_state
+    class_template: '
+      var sunRise = entity.state;
+      if (sunRise == "日落")
+        return "night";
+      else
+        return "daytime";
+      '
+
+  - name: Moon
+    entities:
+      - sensor.moon
+    image_template: '
+      var imageName = "";
+
+      switch (entity.state) {
+        case "New moon":
+          imageName = "New_moon";
+          break;
+
+        case "First quarter":
+          imageName = "First_quarter";
+          break;
+
+        case "Waxing crescent":
+          imageName = "Waxing_crescent";
+          break;
+
+        case "Waning gibbous":
+          imageName = "Waning_gibbous";
+          break;
+
+        case "Waxing gibbous":
+          imageName = "Waxing_gibbous";
+          break;
+
+        case "Waning crescent":
+          imageName = "Waning_crescent";
+          break;
+
+        case "Last quarter":
+          imageName = "Last_quarter";
+          break;
+
+        case "Full moon":
+          imageName = "Full_moon";
+          break;
+      }
+
+      return "/local/custom_ui/floorplan/images/moon/" + imageName + ".svg";
+      '
